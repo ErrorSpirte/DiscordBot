@@ -48,19 +48,19 @@ async def on_message(message):
         else:
             await message.channel.send("Извини уж, но это не вопрос")
 
-    elif message.content.startswith("!mems"):
+    elif message.content.startswith("!memes") or message.content.startswith('!мемы'):
         img_name = random.choice(os.listdir('images'))
         with open(f'images/{img_name}', 'rb') as f:
             picture = discord.File(f)
         await message.channel.send(file=picture)
 
-    elif message.content.startswith("!memrandom"):
+    elif message.content.startswith("!memerandom") or message.content.startswith('!мемрандом'):
         img_name = random.choices(list(weights.keys()), weights=list(weights.values()), k=1)[0]
         with open(f'images/{img_name}', 'rb') as f:
             picture = discord.File(f)
         await message.channel.send(file=picture)
 
-    elif message.content.startswith("!duck"):
+    elif message.content.startswith("!duck") or message.content.startswith('!утка'):
         image_url = get_duck_image_url()
         await message.channel.send(image_url)
     #else:
